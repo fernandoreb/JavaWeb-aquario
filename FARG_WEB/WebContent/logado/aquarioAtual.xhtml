@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui">
+	<h:head/>
+    <h:body>
+   		<h:form id="aquarioForm">
+    
+			<!-- Lista de aquarios -->
+    		<p:panel id="painelConsulta" 
+    				 header="#{aquarioController.painelConsultaTitulo}" 
+    				 style="text-align:left;width:740px;" >
+    		
+    		
+				<p:dataTable value="#{aquarioController.listaAquarioInfo}"
+	   					     id="tabela"
+	   					     emptyMessage="#{aquarioController.painelConsultaNenhumReg}"
+	   					     rowIndexVar="var"
+	   					     paginator="true"
+	   					     paginatorPosition="bottom"
+	   					     firstPageLinkLabel="#{aquarioController.painelConsultaPrimeira}"
+	   					     previousPageLinkLabel="#{aquarioController.painelConsultaAnterior}"
+	   					     nextPageLinkLabel="#{aquarioController.painelConsultaProxima}"
+	   					     lastPageLinkLabel="#{aquarioController.painelConsultaUltima}"
+	   					     rows="10"
+	   					     var="aquario"
+	   					     width="650">
+ 
+	   					     
+	   				<p:column>
+	   					<f:facet name="header">
+							<h:outputText value="#{aquarioController.painelConsultaID}" />
+						</f:facet>
+						<h:outputText value="#{aquario.id}" styleClass="letra1" />	
+	   				</p:column>
+
+	   				<p:column>
+	   					<f:facet name="header">
+							<h:outputText value="#{aquarioController.painelConsultaData}" />
+						</f:facet>
+						<h:outputText value="#{aquario.dataMedicao}" styleClass="letra1" />	
+	   				</p:column>
+	   				
+	   				<p:column>
+	   					<f:facet name="header">
+							<h:outputText value="#{aquarioController.painelConsultaHora}" />
+						</f:facet>
+						<h:outputText value="#{aquario.horaMedicao}" styleClass="letra1" />	
+	   				</p:column>
+	   				
+	   				<p:column>
+	   					<f:facet name="header">
+							<h:outputText value="#{aquarioController.painelConsultaTempAgua}" />
+						</f:facet>
+						<h:outputText value="#{aquario.tempAgua}" styleClass="letra1" />	
+	   				</p:column>
+	   				
+	   				<p:column>
+	   					<f:facet name="header">
+							<h:outputText value="#{aquarioController.painelConsultaTempTampa}" />
+						</f:facet>
+						<h:outputText value="#{aquario.tempTampa}" styleClass="letra1" />	
+	   				</p:column>
+	   				
+	   				<p:column>
+	   					<f:facet name="header">
+							<h:outputText value="#{aquarioController.painelConsultaTempAmb}" />
+						</f:facet>
+						<h:outputText value="#{aquario.tempAmb}" styleClass="letra1" />	
+	   				</p:column>
+	   				
+	   				<p:column>
+	   					<f:facet name="header">
+							<h:outputText value="#{aquarioController.painelConsultaNivelSump}" />
+						</f:facet>
+						<h:outputText value="#{aquario.nivelSump}" styleClass="letra1" />	
+	   				</p:column>
+	   				
+	   				<p:column>
+	   					<f:facet name="header">
+							<h:outputText value="#{aquarioController.painelConsultaNivelRepo}" />
+						</f:facet>
+						<h:outputText value="#{aquario.nivelRepo}" styleClass="letra1" />	
+	   				</p:column>
+	   				
+	   				<p:column>
+	   					<f:facet name="header">
+							<h:outputText value="#{aquarioController.painelConsultaLuz}" />
+						</f:facet>
+						<h:outputText value="#{aquario.luzLigada}" styleClass="letra1" />	
+	   				</p:column>
+	   				
+	   			</p:dataTable>
+	   			    		
+    		</p:panel>
+    		
+	    </h:form>
+		
+	</h:body>
+
+</html>

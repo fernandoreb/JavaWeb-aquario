@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<cloudbees-web-app xmlns="http://www.cloudbees.com/xml/webapp/1">
+  <!-- Application ID (formatted CB_ACCOUNT/APPNAME) -->
+  <appid>FARG_WEB</appid>
+
+  <!-- DataSources (use names referenced via <resource-ref> in WEB-INF/web.xml) -->
+  <resource name="jdbc/fargwebdb" auth="Container" type="javax.sql.DataSource">
+    <param name="username" value="fargweb" />
+    <param name="password" value="fargweb" />
+    <param name="url" value="jdbc:mysql://ec2-23-21-211-172.compute-1.amazonaws.com:3306/fargwebdb" />
+  </resource>
+  
+  <realm>
+ <param name="className" value="org.apache.catalina.realm.DataSourceRealm" />
+ <param name="dataSourceName" value="jdbc/fargwebdb" />
+ <param name="localDataSource" value="true" />
+ <param name="userTable" value="users" />
+ <param name="userNameCol" value="user_name" />
+ <param name="userCredCol" value="user_pass" />
+ <param name="userRoleTable" value="user_roles" />
+ <param name="roleNameCol" value="role_name" />
+</realm>
+</cloudbees-web-app>

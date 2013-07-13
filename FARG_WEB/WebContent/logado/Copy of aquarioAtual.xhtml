@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui">
+	<h:head/>
+    <h:body>
+   		<h:form id="aquarioForm">
+    
+			<p:panel id="painelCadastro" 
+    				 header="#{aquarioController.painelCadastroTitulo}" 
+    				 style="text-align:left;width:700px;" >
+    				 
+    			<h:panelGrid id="painelGridCadastro"  columns="2">				
+    			
+    				<h:outputLabel value="#{aquarioController.painelCadastroNome}" />
+    				<h:inputText id="dataMedicao" value="#{aquarioController.aquario.dataMedicao}" size="45" />
+    				
+    				<h:outputLabel value="#{aquarioController.painelCadastroDescricao}"/>
+    				<h:inputText id="horaMedicao" value="#{aquarioController.aquario.horaMedicao}" size="45" />
+    			
+    				<h:outputLabel value="#{aquarioController.painelCadastroDescricao}"/>
+    				<h:inputText id="tempAgua" value="#{aquarioController.aquario.tempAgua}" size="45" />
+    			
+    				<h:outputLabel value="#{aquarioController.painelCadastroDescricao}"/>
+    				<h:inputText id="tempTampa" value="#{aquarioController.aquario.tempTampa}" size="45" />
+    			
+    				<h:outputLabel value="#{aquarioController.painelCadastroDescricao}"/>
+    				<h:inputText id="tempAmb" value="#{aquarioController.aquario.tempAmb}" size="45" />
+    			
+    				<h:outputLabel value="#{aquarioController.painelCadastroDescricao}"/>
+    				<h:inputText id="nivelSump" value="#{aquarioController.aquario.nivelSump}" size="45" />
+    			
+    				<h:outputLabel value="#{aquarioController.painelCadastroDescricao}"/>
+    				<h:inputText id="nivelRepo" value="#{aquarioController.aquario.nivelRepo}" size="45" />
+    			
+    				<h:outputLabel value="#{aquarioController.painelCadastroDescricao}"/>
+    				<h:inputText id="luzLigada" value="#{aquarioController.aquario.luzLigada}" size="45" />
+    			
+    			</h:panelGrid>
+    			
+    			<br />
+    			
+				<center>
+	    			<p:commandButton value="#{aquarioController.painelCadastroGravar}" action="#{aquarioController.gravar}" update="painelConsulta, painelCadastro" />
+	    			<p:commandButton type="reset" value="#{aquarioController.painelCadastroLimpar}" />
+    			</center>    				 
+    				 
+    		</p:panel>
+    		
+    		<br />
+    		<br />   	
+    	    		
+    		<!-- Lista de aquarios -->
+    		<p:panel id="painelConsulta" 
+    				 header="#{aquarioController.painelConsultaTitulo}" 
+    				 style="text-align:left;width:700px;" >
+    		
+    		
+				<p:dataTable value="#{aquarioController.listaAquarioInfo}"
+	   					     id="tabela"
+	   					     emptyMessage="#{aquarioController.painelConsultaNenhumReg}"
+	   					     rowIndexVar="var"
+	   					     paginator="true"
+	   					     paginatorPosition="bottom"
+	   					     firstPageLinkLabel="#{aquarioController.painelConsultaPrimeira}"
+	   					     previousPageLinkLabel="#{aquarioController.painelConsultaAnterior}"
+	   					     nextPageLinkLabel="#{aquarioController.painelConsultaProxima}"
+	   					     lastPageLinkLabel="#{aquarioController.painelConsultaUltima}"
+	   					     rows="10"
+	   					     var="aquario"
+	   					     width="600">
+ 
+	   					     
+	   				<p:column>
+	   					<f:facet name="header">
+							<h:outputText value="#{aquarioController.painelConsultaID}" />
+						</f:facet>
+						<h:outputText value="#{aquario.id}" styleClass="letra1" />	
+	   				</p:column>
+
+	   				<p:column>
+	   					<f:facet name="header">
+							<h:outputText value="#{aquarioController.painelCadastroNome}" />
+						</f:facet>
+						<h:outputText value="#{aquario.dataMedicao}" styleClass="letra1" />	
+	   				</p:column>
+	   				
+	   				<p:column>
+	   					<f:facet name="header">
+							<h:outputText value="#{aquarioController.painelCadastroDescricao}" />
+						</f:facet>
+						<h:outputText value="#{aquario.horaMedicao}" styleClass="letra1" />	
+	   				</p:column>
+	   				
+	   				<p:column>
+	   					<f:facet name="header">
+							<h:outputText value="#{aquarioController.painelCadastroDescricao}" />
+						</f:facet>
+						<h:outputText value="#{aquario.tempAgua}" styleClass="letra1" />	
+	   				</p:column>
+	   				
+	   				<p:column>
+	   					<f:facet name="header">
+							<h:outputText value="#{aquarioController.painelCadastroDescricao}" />
+						</f:facet>
+						<h:outputText value="#{aquario.tempTampa}" styleClass="letra1" />	
+	   				</p:column>
+	   				
+	   				<p:column>
+	   					<f:facet name="header">
+							<h:outputText value="#{aquarioController.painelCadastroDescricao}" />
+						</f:facet>
+						<h:outputText value="#{aquario.tempAmb}" styleClass="letra1" />	
+	   				</p:column>
+	   				
+	   				<p:column>
+	   					<f:facet name="header">
+							<h:outputText value="#{aquarioController.painelCadastroDescricao}" />
+						</f:facet>
+						<h:outputText value="#{aquario.nivelSump}" styleClass="letra1" />	
+	   				</p:column>
+	   				
+	   				<p:column>
+	   					<f:facet name="header">
+							<h:outputText value="#{aquarioController.painelCadastroDescricao}" />
+						</f:facet>
+						<h:outputText value="#{aquario.nivelRepo}" styleClass="letra1" />	
+	   				</p:column>
+	   				
+	   				<p:column>
+	   					<f:facet name="header">
+							<h:outputText value="#{aquarioController.painelCadastroDescricao}" />
+						</f:facet>
+						<h:outputText value="#{aquario.luzLigada}" styleClass="letra1" />	
+	   				</p:column>
+	   				
+	   				<p:column>
+		   				 <p:commandButton  value="#{aquarioController.painelConsultaAlterar}" ajax="false" update="">
+	                        <f:setPropertyActionListener target="#{aquarioController.aquario}" value="#{aquario}" />
+	                     </p:commandButton>
+                    </p:column>
+	   				
+	   				<p:column>
+		   				 <p:commandButton action="#{aquarioController.excluir}" value="#{aquarioController.painelConsultaExcluir}" update="tabela">
+	                        <f:setPropertyActionListener target="#{aquarioController.aquario}" value="#{aquario}" />
+	                     </p:commandButton>
+                    </p:column>
+
+	   			</p:dataTable>
+	   			    		
+    		</p:panel>
+    		
+	    </h:form>
+		
+	</h:body>
+
+</html>

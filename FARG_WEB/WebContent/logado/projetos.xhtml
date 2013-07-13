@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui">
+	<h:head/>
+    <h:body>
+   		<h:form id="projetosForm">
+    
+			<p:panel id="painelCadastro" 
+    				 header="#{projetosController.painelCadastroTitulo}" 
+    				 style="text-align:left;width:700px;" >
+    				 
+    			<h:panelGrid id="painelGridCadastro"  columns="2">				
+    			
+    				<h:outputLabel value="#{projetosController.painelCadastroNome}" />
+    				<h:inputText id="nomeProjeto" value="#{projetosController.projeto.nome}" size="45" />
+    				
+    				<h:outputLabel value="#{projetosController.painelCadastroDescricao}"/>
+    				<h:inputText id="descricaoProjeto" value="#{projetosController.projeto.descricao}" size="45" />
+    			
+    			</h:panelGrid>
+    			
+    			<br />
+    			
+				<center>
+	    			<p:commandButton value="#{projetosController.painelCadastroGravar}" action="#{projetosController.gravar}" update="painelConsulta, painelCadastro" />
+	    			<p:commandButton type="reset" value="#{projetosController.painelCadastroLimpar}" />
+    			</center>    				 
+    				 
+    		</p:panel> 
+    		
+    		<br />
+    		<br />   	
+    	    		
+    		<!-- Lista de projetos -->
+    		<p:panel id="painelConsulta" 
+    				 header="#{projetosController.painelConsultaTitulo}" 
+    				 style="text-align:left;width:700px;" >
+    		
+    		
+				<p:dataTable value="#{projetosController.listaProjetos}"
+	   					     id="tabela"
+	   					     emptyMessage="#{projetosController.painelConsultaNenhumReg}"
+	   					     rowIndexVar="var"
+	   					     paginator="true"
+	   					     paginatorPosition="bottom"
+	   					     firstPageLinkLabel="#{projetosController.painelConsultaPrimeira}"
+	   					     previousPageLinkLabel="#{projetosController.painelConsultaAnterior}"
+	   					     nextPageLinkLabel="#{projetosController.painelConsultaProxima}"
+	   					     lastPageLinkLabel="#{projetosController.painelConsultaUltima}"
+	   					     rows="10"
+	   					     var="projeto"
+	   					     width="600">
+ 
+	   					     
+	   				<p:column>
+	   					<f:facet name="header">
+							<h:outputText value="#{projetosController.painelConsultaID}" />
+						</f:facet>
+						<h:outputText value="#{projeto.id}" styleClass="letra1" />	
+	   				</p:column>
+
+	   				<p:column>
+	   					<f:facet name="header">
+							<h:outputText value="#{projetosController.painelCadastroNome}" />
+						</f:facet>
+						<h:outputText value="#{projeto.nome}" styleClass="letra1" />	
+	   				</p:column>
+	   				
+	   				<p:column>
+	   					<f:facet name="header">
+							<h:outputText value="#{projetosController.painelCadastroDescricao}" />
+						</f:facet>
+						<h:outputText value="#{projeto.descricao}" styleClass="letra1" />	
+	   				</p:column>
+	   				
+	   				<p:column>
+		   				 <p:commandButton  value="#{projetosController.painelConsultaAlterar}" ajax="false" update="">
+	                        <f:setPropertyActionListener target="#{projetosController.projeto}" value="#{projeto}" />
+	                     </p:commandButton>
+                    </p:column>
+	   				
+	   				<p:column>
+		   				 <p:commandButton action="#{projetosController.excluir}" value="#{projetosController.painelConsultaExcluir}" update="tabela">
+	                        <f:setPropertyActionListener target="#{projetosController.projeto}" value="#{projeto}" />
+	                     </p:commandButton>
+                    </p:column>
+
+	   			</p:dataTable>
+	   			    		
+    		</p:panel>
+    		
+	    </h:form>
+		
+	</h:body>
+
+</html>

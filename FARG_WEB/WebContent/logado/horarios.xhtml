@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui">
+	  
+	  
+	
+	<h:head>
+    
+        <title>
+        
+        </title>
+        
+    </h:head>
+       
+    <h:body>
+
+   <h:form id="schedulerForm">
+
+    			
+					    <p:growl id="messages" showDetail="true" />  
+  
+    						<p:schedule id="schedule" value="#{horariosController.eventModel}" widgetVar="myschedule">  
+  
+  						      <p:ajax event="dateSelect" listener="#{horariosController.onDateSelect}" update="eventDetails" oncomplete="eventDialog.show()" />  
+        					  <p:ajax event="eventSelect" listener="#{horariosController.onEventSelect}" update="eventDetails" oncomplete="eventDialog.show()" />  
+        					  <p:ajax event="eventMove" listener="#{horariosController.onEventMove}" update="messages" />  
+	       					  <p:ajax event="eventResize" listener="#{horariosController.onEventResize}" update="messages" />  
+	  
+	    					</p:schedule>  
+	  
+	    					<p:dialog widgetVar="eventDialog" header="Event Details" showEffect="clip" hideEffect="clip">  
+	        					<h:panelGrid id="eventDetails" columns="2">  
+	            					<h:outputLabel for="title" value="Title:" />  
+	            					<p:inputText id="title" value="#{horariosController.event.title}" required="true"/>  
+	  
+	            					<h:outputLabel for="from" value="From:" />  
+	            					<p:inputMask id="from" value="#{horariosController.event.startDate}" mask="99/99/9999">  
+	                					<f:convertDateTime pattern="dd/MM/yyyy" />  
+	            					</p:inputMask>
+	            					<h:outputLabel for="init" value="Init:" />  
+	            					<p:inputMask id="init" value="#{horariosController.event.startDate.time}">  
+										<f:convertDateTime pattern="h:mm a"/>  
+	            					</p:inputMask>
+	  
+	            					<h:outputLabel for="to" value="To:" />  
+	            					<p:inputMask id="to" value="#{horariosController.event.endDate}" mask="99/99/9999">  
+	                					<f:convertDateTime pattern="dd/MM/yyyy" />  
+	            					</p:inputMask>  
+
+	            					<h:outputLabel for="end" value="End:" />  
+	            					<p:inputMask id="end" value="#{horariosController.event.endDate.time}" >  
+	            						<f:convertDateTime pattern="h:mm a"/>
+	            					</p:inputMask>
+	  
+	           				 		<h:outputLabel for="allDay" value="All Day:" />  
+	  	          					<h:selectBooleanCheckbox id="allDay" value="#{horariosController.event.allDay}" />  
+	  
+	            					<p:commandButton type="reset" value="Reset" />  
+	            					<p:commandButton id="addButton" value="Save" actionListener="#{horariosController.addEvent}" oncomplete="myschedule.update();eventDialog.hide();"/>  
+	        					</h:panelGrid>  
+	    					</p:dialog>  
+				    			
+    
+    </h:form>
+		
+	</h:body>
+
+</html>
