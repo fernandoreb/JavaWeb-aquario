@@ -1,5 +1,7 @@
 package webservices;
 
+import java.util.List;
+
 import util.BeanFactory;
 import dao.AquarioDAO;
 import entidade.Aquario;
@@ -27,5 +29,12 @@ public class ManutencaoAquario {
 		aquarioDAO.gravar(aquario);
 		
 		return "Sucesso";
+	}
+	
+	public List<Aquario>listaCompleta(){
+		
+		aquarioDAO = (AquarioDAO) BeanFactory.getBean("aquarioDAO", AquarioDAO.class);
+		
+		return aquarioDAO.buscarTodos();
 	}
 }
