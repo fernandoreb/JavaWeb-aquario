@@ -118,6 +118,14 @@ public class Aquario {
 	public void setLuzLigada(int luzLigada) {
 		this.luzLigada = luzLigada;
 	}
+	
+	public String toString(){
+		return "[id"+id+
+		" dataMedicao: "+dataMedicao+" horaMedicao: "+horaMedicao+
+		" tempAgua "+tempAgua+" tempTampa: "+tempTampa+
+		" tempAmb: " + tempAmb + " nivelSump: "+nivelSump+
+		" nivelRepo: "+nivelRepo+ " luzLigada:"+luzLigada+"]";
+	}
 
 		
 }	

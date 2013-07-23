@@ -26,8 +26,35 @@ public class AquarioController implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private Aquario Aquario = new Aquario();
 	private List<Aquario> listaAquarioInfo = new ArrayList<Aquario>();	
+	private List<Aquario> listaAquarioDetalhe = new ArrayList<Aquario>();	
 	private AquarioDAO AquarioDAO = (AquarioDAO) BeanFactory.getBean("aquarioDAO", AquarioDAO.class);
+	private Aquario selecionado;
 	
+	public Aquario getSelecionado() {
+		return selecionado;
+	}
+
+	public void setSelecionado(Aquario selecionado) {
+		//System.out.println(selecionado);
+		this.selecionado = selecionado;
+		
+	}
+	
+	public String detalhes(){
+		
+		if(selecionado == null)
+			return "";
+		
+		atualizarTelaDetalhe();
+		
+		return "/logado/aquarioDetalhe.jsf";
+	}
+	
+	public String voltar(){
+		
+		return "/logado/aquarioAtual.jsf";
+	}
+
 	public AquarioController(){
 		atualizarTela();
 	}
@@ -37,7 +64,14 @@ public class AquarioController implements Serializable{
 	 */
 	private void atualizarTela() {
 		Aquario = new Aquario();
-		listaAquarioInfo = AquarioDAO.buscarTodos();
+		//listaAquarioInfo = AquarioDAO.buscarTodos();
+		listaAquarioInfo = AquarioDAO.buscarTodosResumido();
+	}
+	
+	private void atualizarTelaDetalhe() {
+		Aquario = new Aquario();
+		//listaAquarioDetalhe = AquarioDAO.buscarTodos();
+		listaAquarioDetalhe = AquarioDAO.buscaData(selecionado);
 	}
 
 	/**
@@ -59,9 +93,17 @@ public class AquarioController implements Serializable{
 	public List<Aquario> getListaAquarioInfo() {
 		return listaAquarioInfo;
 	}
+	
+	public List<Aquario> getListaAquarioDetalhe() {
+		return listaAquarioDetalhe;
+	}
 		 
 	public void setListaAquarioInfo(List<Aquario> listaAquario) {
 		this.listaAquarioInfo = listaAquario;
+	}
+	
+	public void setListaAquarioDetalhe(List<Aquario> listaAquario) {
+		this.listaAquarioDetalhe = listaAquario;
 	}
 		 
 	public Aquario getAquario() {
@@ -171,4 +213,6 @@ public class AquarioController implements Serializable{
 	{
 		return TextosTela.getTextItem(TextosTela.LUZ);
 	}
+	
+	
 }
