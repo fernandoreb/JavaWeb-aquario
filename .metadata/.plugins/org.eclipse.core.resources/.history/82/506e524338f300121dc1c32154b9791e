@@ -1,0 +1,32 @@
+package dao;
+
+import java.util.List;
+
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
+import entidade.Aquario;
+
+public class AquarioDAO extends HibernateDaoSupport {
+	
+	public List<Aquario> buscarTodos(){
+		return getHibernateTemplate().loadAll(Aquario.class);
+	}
+	
+	public Aquario buscarPorId(Long id){
+		return getHibernateTemplate().get(Aquario.class, id);		
+	}
+	
+	public void gravar(Aquario projeto){
+		getHibernateTemplate().saveOrUpdate(projeto);
+	}
+	
+	public void excluir(Aquario projeto){
+		getHibernateTemplate().delete(projeto);
+	}
+	
+	public List<Aquario>buscaData(Aquario aquario){
+		return getHibernateTemplate().find("SELECT*FROM AQUARIO WHERE dataMedicao'"+aquario.getDataMedicao()+"'")
+	}
+	
+		
+}

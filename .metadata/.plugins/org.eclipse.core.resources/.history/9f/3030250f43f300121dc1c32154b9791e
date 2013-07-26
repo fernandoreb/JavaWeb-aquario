@@ -1,0 +1,56 @@
+package dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
+import entidade.Aquario;
+
+public class AquarioDAO extends HibernateDaoSupport {
+	
+	public List<Aquario> buscarTodos(){
+		return getHibernateTemplate().loadAll(Aquario.class);
+	}
+	
+	public List<Aquario> buscarTodosResumido(){
+		
+		//List<Aquario> listTemp = getHibernateTemplate().loadAll(Aquario.class);
+		List<String> listTemp = getHibernateTemplate().find("select distinct o.dataMedicao from Aquario o");
+		
+		System.out.println(listTemp);
+		List<Aquario> aux1 = new ArrayList<Aquario>();
+		
+		if(listTemp==null || listTemp.size()<=0)
+			return null;
+		
+		for(int i = 0; i < listTemp.size(); i++){
+			
+		}
+		
+		
+		return null;
+	}
+	
+	public Aquario buscarPorId(Long id){
+		return getHibernateTemplate().get(Aquario.class, id);		
+	}
+	
+	public void gravar(Aquario projeto){
+		getHibernateTemplate().saveOrUpdate(projeto);
+	}
+	
+	public void excluir(Aquario projeto){
+		getHibernateTemplate().delete(projeto);
+	}
+	
+	public List<Aquario>buscaData(Aquario aquario){
+		return (List<Aquario>)getHibernateTemplate().find("FROM Aquario a WHERE a.dataMedicao = ?",aquario.getDataMedicao());
+	}
+	
+	public List<Aquario>buscaData(String dataMedicao){
+		return (List<Aquario>)getHibernateTemplate().find("FROM Aquario a WHERE a.dataMedicao = ?",dataMedicao);
+	}
+	
+		
+}

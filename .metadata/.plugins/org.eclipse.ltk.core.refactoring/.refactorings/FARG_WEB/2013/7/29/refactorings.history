@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;aquarioAtual.xhtml&apos; to &apos;aquarioAtual.xhtml&apos;&#x0A;- Original project: &apos;FARG_WEB&apos;&#x0A;- Destination element: &apos;aquarioAtual.xhtml&apos;&#x0A;- Original element: &apos;aquarioAtual.xhtml&apos;" description="Copy file" element1="WebContent/logado/aquarioAtual.xhtml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1373935937653" target="/FARG_WEB/WebContent/logado/aquarioAtual.xhtml" units="0" version="1.0"/>
+</session>

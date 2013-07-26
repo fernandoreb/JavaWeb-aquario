@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ManutencaoAquarioService WSDL service -->
+
+  <service name="ManutencaoAquario" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://webservices"/>
+      <parameter name="wsdlServiceElement" value="ManutencaoAquarioService"/>
+      <parameter name="schemaQualified" value="http://webservices"/>
+      <parameter name="wsdlServicePort" value="ManutencaoAquario"/>
+      <parameter name="className" value="webservices.ManutencaoAquario"/>
+      <parameter name="wsdlPortType" value="ManutencaoAquario"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://webservices" xmlns:retNS="http://webservices" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="atualizaAquario" qname="operNS:AtualizaAquario" returnQName="retNS:AtualizaAquarioReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://webservices" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:dataMedicao" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:horaMedicao" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:luzLigada" type="tns:int"/>
+        <parameter xmlns:pns="http://webservices" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nivelRepo" type="tns:int"/>
+        <parameter xmlns:pns="http://webservices" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nivelSump" type="tns:int"/>
+        <parameter xmlns:pns="http://webservices" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:tempAgua" type="tns:float"/>
+        <parameter xmlns:pns="http://webservices" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:tempAmb" type="tns:float"/>
+        <parameter xmlns:pns="http://webservices" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:tempTampa" type="tns:float"/>
+      </operation>
+      <operation xmlns:operNS="http://webservices" xmlns:retNS="http://webservices" xmlns:rtns="http://webservices" xmlns:tns="http://webservices" name="listaCompleta" qname="operNS:listaCompleta" returnQName="retNS:listaCompletaReturn" returnType="rtns:ArrayOf_xsd_anyType" returnItemQName="tns:item" soapAction="">
+      </operation>
+      <parameter name="allowedMethods" value="atualizaAquario listaCompleta"/>
+
+      <arrayMapping xmlns:ns="http://webservices" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema" qname="ns:ArrayOf_xsd_anyType" type="java:java.lang.Object[]" innerType="cmp-ns:anyType" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://webservices" qname="ns:&gt;AtualizaAquarioResponse" type="java:webservices.AtualizaAquarioResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://webservices" qname="ns:&gt;listaCompletaResponse" type="java:webservices.ListaCompletaResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://webservices" qname="ns:&gt;AtualizaAquario" type="java:webservices.AtualizaAquario" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://webservices" qname="ns:&gt;listaCompleta" type="java:webservices.ListaCompleta" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

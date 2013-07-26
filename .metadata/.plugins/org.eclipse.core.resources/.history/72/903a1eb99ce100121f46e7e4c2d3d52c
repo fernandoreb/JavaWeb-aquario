@@ -1,0 +1,16 @@
+package config;
+
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
+public class Conexao extends DriverManagerDataSource {
+	
+	public Conexao(){
+		
+		this.setDriverClassName("org.apache.derby.jdbc.ClientDriver");
+		this.setUrl("jdbc:derby://localhost:1527/banco1");
+		this.setUsername("APP");
+		this.setPassword("APP");
+		
+	}
+	
+}

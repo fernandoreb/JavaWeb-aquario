@@ -19,6 +19,8 @@ DROP TABLE AQUARIO;
 delete from aquario;
 select * from aquario;
 
+DELETE a FROM aquario a, aquario b WHERE a.dataMedicao = b.dataMedicao AND a.tempAgua = b.tempAgua AND a.tempTampa = b.tempTampa AND a.tempAmb = b.tempAmb AND a.nivelRepo = b.nivelRepo AND b.id IS NOT NULL AND a.id <> b.id;
+
 create table users (
  user_name         varchar(15) not null primary key,
  user_pass         varchar(15) not null

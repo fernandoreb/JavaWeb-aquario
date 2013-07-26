@@ -1,0 +1,17 @@
+INDEX VERSION 1.126
+/Users/fernandoguimaraes/Dropbox/Aquario/Projetos/JavaWeb/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1994816384.index
+/FARG_WEBSERVER/src
+/Users/fernandoguimaraes/Dropbox/Aquario/Projetos/JavaWeb/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2741956765.index
+/FARG_WEBSERVER/src
+/Users/fernandoguimaraes/Dropbox/repositorios/git/JavaWeb/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1994816384.index
+/FARG_WEBSERVER/src
+/Users/fernandoguimaraes/Dropbox/Aquario/Projetos/JavaWeb/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/786218280.index
+/FARG_WEBSERVER/src
+/Users/fernandoguimaraes/Dropbox/repositorios/git/JavaWeb/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/786218280.index
+/FARG_WEBSERVER/src
+/Users/fernandoguimaraes/Dropbox/repositorios/git/JavaWeb/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2741956765.index
+/FARG_WEBSERVER/src
+/Users/fernandoguimaraes/Dropbox/Aquario/Projetos/JavaWeb/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/4175787010.index
+/FARG_WEB/src
+/Users/fernandoguimaraes/Dropbox/Aquario/Projetos/JavaWeb/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/599713471.index
+/FARG_WEB/src

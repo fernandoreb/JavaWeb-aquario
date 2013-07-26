@@ -28,9 +28,10 @@
 	   					     lastPageLinkLabel="#{aquarioController.painelConsultaUltima}"
 	   					     rows="10"
 	   					     var="aquario"
-	   					     width="650">
+	   					     selection="#{aquarioController.selecionado}" selectionMode="single"  
+	   					     width="650" rowKey="#{aquario.id}">
  
-	   					     
+	   				<p:ajax event="rowSelect" update="tabela"/>	     
 	   				<p:column>
 	   					<f:facet name="header">
 							<h:outputText value="#{aquarioController.painelConsultaID}" />
@@ -95,6 +96,12 @@
 	   				</p:column>
 	   				
 	   			</p:dataTable>
+	   			
+	   			<br />
+    			
+				<center>
+	    			<p:commandButton value="Detalhes" action="#{aquarioController.detalhes}"/>
+	    		</center> 
 	   			    		
     		</p:panel>
     		

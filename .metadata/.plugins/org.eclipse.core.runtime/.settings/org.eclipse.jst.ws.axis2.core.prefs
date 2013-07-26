@@ -1,0 +1,4 @@
+axis2RuntimeLocation=/Users/fernandoguimaraes/servidores/axis2-1.6.2-war
+cleintDatabinding=ADB
+eclipse.preferences.version=1
+serviceDatabinding=ADB
