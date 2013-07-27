@@ -21,6 +21,14 @@ select * from aquario;
 
 DELETE a FROM aquario a, aquario b WHERE a.dataMedicao = b.dataMedicao AND a.tempAgua = b.tempAgua AND a.tempTampa = b.tempTampa AND a.tempAmb = b.tempAmb AND a.nivelRepo = b.nivelRepo AND b.id IS NOT NULL AND a.id <> b.id;
 
+CREATE TRIGGER depois_insert_aquario 
+BEFORE INSERT ON aquario
+FOR EACH ROW BEGIN
+DELETE a FROM aquario a, aquario b WHERE a.dataMedicao = b.dataMedicao AND a.tempAgua = b.tempAgua AND a.tempTampa = b.tempTampa AND a.tempAmb = b.tempAmb AND a.nivelRepo = b.nivelRepo AND b.id IS NOT NULL AND a.id <> b.id;
+END
+
+DROP TRIGGER depois_insert_aquario;
+
 create table users (
  user_name         varchar(15) not null primary key,
  user_pass         varchar(15) not null

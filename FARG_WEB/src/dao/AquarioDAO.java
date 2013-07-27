@@ -1,5 +1,6 @@
 package dao;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,9 +53,9 @@ public class AquarioDAO extends HibernateDaoSupport {
 			aquario.setHoraMedicao("-");
 			aquario.setNivelRepo(nivRepo);
 			aquario.setNivelSump(nivSump);
-			aquario.setTempAgua(agua/count);
-			aquario.setTempAmb(amb/count);
-			aquario.setTempTampa(tampa/count);
+			aquario.setTempAgua(Float.parseFloat((new DecimalFormat("0.00").format(agua/(float)count))));
+			aquario.setTempAmb(Float.parseFloat((new DecimalFormat("0.00").format(amb/(float)count))));
+			aquario.setTempTampa(Float.parseFloat((new DecimalFormat("0.00").format(tampa/(float)count))));
 			aux2.add(aquario);
 				
 		}

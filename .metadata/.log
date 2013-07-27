@@ -3882,3 +3882,25 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'dat
 	at org.eclipse.datatools.connectivity.internal.ManagedConnection.createConnection(ManagedConnection.java:166)
 	at org.eclipse.datatools.connectivity.internal.CreateConnectionJob.run(CreateConnectionJob.java:56)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SESSION 2013-07-26 19:45:40.185 -----------------------------------------------
+eclipse.buildId=4.3.0.I20130605-2000
+java.version=1.6.0_51
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -keyring /Users/fernandoguimaraes/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.jee.product -keyring /Users/fernandoguimaraes/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2013-07-26 19:46:49.358
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.ui 4 4 2013-07-26 19:46:51.526
+!MESSAGE Unable to find Action Set: org.jboss.ide.eclipse.archives.ui.actions.Archives
+
+!ENTRY org.eclipse.ui 4 4 2013-07-26 19:46:51.527
+!MESSAGE Unable to find Action Set: org.jboss.tools.jst.web.ui.server.actionSet
+
+!ENTRY org.eclipse.ui 4 4 2013-07-26 20:28:23.612
+!MESSAGE Unable to find Action Set: org.jboss.ide.eclipse.archives.ui.actions.Archives
+
+!ENTRY org.eclipse.ui 4 4 2013-07-26 20:28:23.612
+!MESSAGE Unable to find Action Set: org.jboss.tools.jst.web.ui.server.actionSet
